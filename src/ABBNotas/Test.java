@@ -11,9 +11,11 @@ public class Test {
 		ObjectInputStream in = null;
 		ListaNotas lista;
 		listaNotas.Nodo nodo;
+		ObjectOutputStream out = null;
 
 		try {
 			in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("listanotas.txt")));
+			out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("arbolnotas.txt")));
 
 			lista = (ListaNotas) in.readObject();
 			nodo = lista.getInicio();
@@ -23,11 +25,13 @@ public class Test {
 				nodo = nodo.getSiguiente();
 			}
 			// arbol.insertar(nodo.getNota(), nodo.getNombre(), nodo);
+			out.writeObject(arbol);
 
 		} finally {
 			if (in != null) {
 				in.close();
 			}
+			out.close();
 		}
 
 		System.out.println("Inorden:");
@@ -46,7 +50,7 @@ public class Test {
 
 	public static void preorden(Nodo r) {
 		if (r != null) {
-			System.out.println(r.toString());
+			System.out.print(r.toString());
 			preorden(r.subarbolIzdo());
 			preorden(r.subarbolDcho());
 		}
@@ -55,7 +59,7 @@ public class Test {
 	public static void inorden(Nodo r) {
 		if (r != null) {
 			inorden(r.subarbolIzdo());
-			System.out.println(r.toString());
+			System.out.print(r.toString());
 			inorden(r.subarbolDcho());
 		}
 	}
@@ -64,7 +68,7 @@ public class Test {
 		if (r != null) {
 			postorden(r.subarbolIzdo());
 			postorden(r.subarbolDcho());
-			System.out.println(r.toString());
+			System.out.print(r.toString());
 		}
 	}
 

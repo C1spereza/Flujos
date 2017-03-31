@@ -1,6 +1,8 @@
 package ABBNotas;
 
-public class ArbolBinario {
+import java.io.Serializable;
+
+public class ArbolBinario implements Serializable{
 	private Nodo raiz;
 
 
