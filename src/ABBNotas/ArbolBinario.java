@@ -2,19 +2,14 @@ package ABBNotas;
 
 public class ArbolBinario {
 	private Nodo raiz;
-	private Nodo izq;
-	private Nodo der;
+
 
 	public ArbolBinario() {
 		raiz = null;
-		izq = null;
-		der = null;
 	}
 
 	public ArbolBinario(Nodo izq, Nodo raiz, Nodo der) {
-		this.izq = izq;
 		this.raiz = raiz;
-		this.der = der;
 	}
 
 	public Nodo raizArbol() {

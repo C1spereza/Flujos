@@ -9,6 +9,10 @@ public class Nodo implements Serializable {
 	protected Nodo dcho;
 	private Nodo siguiente;
 	
+	public Nodo(){
+		
+	}
+	
 	public Nodo(String nombre, int nota){
 		this.nombre = nombre;
 		this.nota = nota;
@@ -44,7 +48,7 @@ public class Nodo implements Serializable {
 		dcho = n;
 	}
 
-	public String getNobre() {
+	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
