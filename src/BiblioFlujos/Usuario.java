@@ -64,5 +64,9 @@ public class Usuario {
 	public void prestar(Libro libro){
 		lista.insertar(libro);
 	}
+	
+	public void devolver(NodoLibro libro){
+		libro.setDevuelto(true);
+	}
 
 }

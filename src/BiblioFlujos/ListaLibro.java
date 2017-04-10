@@ -64,7 +64,7 @@ public class ListaLibro {
 		}		
 	}
 	
-	public boolean eliminarFinal(ListaLibro lista){
+	/*public boolean eliminarFinal(ListaLibro lista){
 		int a;
 		NodoLibro b, b1;
 		b=n;
@@ -77,12 +77,14 @@ public class ListaLibro {
 				b=b.getSiguiente();
 			}
 			b.setSiguiente(null);
-			tamaño--;*/
+			tamaño--;
 			while(b1.getSiguiente()!= null){
 				b.setSiguiente(b.getSiguiente());
 			}
 			return false;
 		}
-	}
+	}*/
+	
+	
 
 }
