@@ -95,7 +95,8 @@ public class Libro {
 	
 	public String toString(){
 		return "Autor: \t\t\t\t" + autor + "\n"
-		+ "Titulo: \t\t\t" + titulo + "\n"; 
+		+ "Titulo: \t\t\t" + titulo + "\n"
+		+ "ISBN: \t\t\t\t" + isbn + " - " + codEjemplar; 
 	}
 	
 	public void prestar(Usuario usuario){
