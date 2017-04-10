@@ -4,6 +4,14 @@ public class ListaLibro {
 	private NodoLibro n;
 	private Libro libro;
 	
+	public Libro getLibro() {
+		return libro;
+	}
+
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+
 	public ListaLibro(){
 		this.libro=null;
 		this.n=null;
@@ -54,6 +62,27 @@ public class ListaLibro {
 		}else{
 			return false;
 		}		
+	}
+	
+	public boolean eliminarFinal(ListaLibro lista){
+		int a;
+		NodoLibro b, b1;
+		b=n;
+		b1 = b.getSiguiente();
+		if(b==null){
+			return false;
+		}else{
+			/*a=this.tamaño;
+			for(int i=0; i<a-2; i++){
+				b=b.getSiguiente();
+			}
+			b.setSiguiente(null);
+			tamaño--;*/
+			while(b1.getSiguiente()!= null){
+				b.setSiguiente(b.getSiguiente());
+			}
+			return false;
+		}
 	}
 
 }

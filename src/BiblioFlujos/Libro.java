@@ -1,21 +1,39 @@
 package BiblioFlujos;
 
 public class Libro {
+	private static int ejemplares=0;
 	private String autor;
 	private String titulo;
 	private int isbn;
-	private int ejemplares=0;
+	private int codEjemplar;
 	private boolean prestado;
 	private ListaUsuario listausuario;
-	private NodoLibro inicio = null;
-	private NodoUsuario usuarios = null;
+
 	
+	public int getCodEjemplar() {
+		return codEjemplar;
+	}
+
+	public void setCodEjemplar(int codEjemplar) {
+		this.codEjemplar = codEjemplar;
+	}
+
+	public ListaUsuario getListausuario() {
+		return listausuario;
+	}
+
+	public void setListausuario(ListaUsuario listausuario) {
+		this.listausuario = listausuario;
+	}
+
 	public Libro(){
 		this.autor="";
 		this.titulo="";
 		this.listausuario = new ListaUsuario();
 		this.isbn = 0;
 		this.prestado=false;
+		codEjemplar=ejemplares;
+		ejemplares++;
 	}
 	
 	public Libro(String autor, String titulo, int isbn){
@@ -64,49 +82,9 @@ public class Libro {
 		return ejemplares;
 	}
 	
-	public boolean eliminarFinal(){
-		int a;
-		NodoLibro b, b1;
-		b=inicio;
-		b1 = b.getSiguiente();
-		if(inicio==null){
-			return false;
-		}else{
-			/*a=this.tamaño;
-			for(int i=0; i<a-2; i++){
-				b=b.getSiguiente();
-			}
-			b.setSiguiente(null);
-			tamaño--;*/
-			while(b1.getSiguiente()!= null){
-				b.setSiguiente(b.getSiguiente());
-			}
-			return false;
-		}
-	}
 	
-	public void insertar(Usuario usuario){
-		NodoUsuario aux=usuarios;
-		if(usuarios==null){
-			usuarios=new NodoUsuario(usuario);
-		}else{
-			while(aux.getSiguiente()!=null){
-				aux=aux.getSiguiente();
-			}
-			aux.setSiguiente(new NodoUsuario(usuario));
-		}
-	}
 	
-/*	public boolean prestamo(){
-		if(this.numPrestados<this.numEjemplares){
-			numPrestados++;
-			return true;
-		}else{
-			return false;
-		}
-	}
-	
-	public boolean devolucion(){
+/*	public boolean devolucion(){
 		if(this.numPrestados>0){
 			numPrestados--;
 			return true;
@@ -118,6 +96,11 @@ public class Libro {
 	public String toString(){
 		return "Autor: \t\t\t\t" + autor + "\n"
 		+ "Titulo: \t\t\t" + titulo + "\n"; 
+	}
+	
+	public void prestar(Usuario usuario){
+		listausuario.insertar(usuario);
+		prestado=true;
 	}
 
 

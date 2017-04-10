@@ -4,6 +4,14 @@ public class ListaUsuario {
 	private NodoUsuario n;
 	private Usuario usuario;
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public ListaUsuario(){
 		this.usuario=null;
 		this.n=null;

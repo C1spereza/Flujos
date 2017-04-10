@@ -5,8 +5,16 @@ public class Usuario {
 	private int tlf;
 	private int dni;
 	private ListaLibro lista;
-	private NodoLibro libros = null;
+
 	
+	public ListaLibro getLista() {
+		return lista;
+	}
+
+	public void setLista(ListaLibro lista) {
+		this.lista = lista;
+	}
+
 	public Usuario(){
 		this.nombre = "";
 		this.tlf = 0;
@@ -45,22 +53,16 @@ public class Usuario {
 		return this.dni;
 	}
 	
-	public void insertar(Libro libro){
-		NodoLibro aux=libros;
-		if(libros==null){
-			libros=new NodoLibro(libro);
-		}else{
-			while(aux.getSiguiente()!=null){
-				aux=aux.getSiguiente();
-			}
-			aux.setSiguiente(new NodoLibro(libro));
-		}
-	}
+	
 	
 	public String toString(){
 		return "Nombre: \t\t\t\t" + nombre + "\n"
 		+ "Teléfono: \t\t\t" + tlf + "\n" + 
 		"DNI: \t\t\t\t" + dni + "\n"; 
+	}
+	
+	public void prestar(Libro libro){
+		lista.insertar(libro);
 	}
 
 }
